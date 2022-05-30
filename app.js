@@ -15,6 +15,10 @@ let tasksList = {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    
+    if(localStorage.getItem('keyTask')) {
+        tasksList = JSON.parse(localStorage.getItem('keyTask'))
+    }
     printTask()
 })
 
@@ -56,6 +60,9 @@ const setTask = e => {
 }
 
 const printTask = () => {
+
+    localStorage.setItem('keyTask', JSON.stringify(tasksList))//esto pasa al local storage una key y el objeto pasado como string
+
     if(Object.values(tasksList).length === 0) {
         listaTarea.innerHTML = `
         <div class="alert alert-dark "> All tasks done! ✨</div>
