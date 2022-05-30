@@ -15,7 +15,7 @@ let tasksList = {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    
+
     if(localStorage.getItem('keyTask')) {
         tasksList = JSON.parse(localStorage.getItem('keyTask'))
     }
@@ -40,7 +40,7 @@ formulario.addEventListener('submit', e => {
 
 const setTask = e => {
     if(input.value.trim() === ''){
-    console.log('no escribiste nada flaco')
+    console.log('No escribiste nada flaco')
     return // el return solo dentro del If hace que se salga de la funcion despues de entrar al if y llegar al return
     }
 
@@ -94,7 +94,6 @@ const btnAccion = e => {
         // console.log(e.target.dataset.id)
         tasksList[e.target.dataset.id].estado = true
         printTask()
-        console.log(tasksList)
     }
 
     if(e.target.classList.contains('fa-minus-circle')) {
